@@ -61,3 +61,17 @@ class Dish(models.Model):
 
     class Meta:
         verbose_name_plural = "Dish Table"
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profile_pic = models.ImageField(
+        upload_to='profiles/%y/%m/%d', null=True, blank=True)
+    address = models.TextField()
+    updated_on = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.user.first_name
+
+    class Meta:
+        verbose_name_plural = "Profile Table"
