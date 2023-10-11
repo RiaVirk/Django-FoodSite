@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from myapp.models import Contact, Dish, Team, Category, Profile
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.contrib.auth.models import User
 
 
