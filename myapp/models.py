@@ -67,7 +67,8 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_pic = models.ImageField(
         upload_to='profiles/%y/%m/%d', null=True, blank=True)
-    address = models.TextField()
+    contact_number = models.CharField(max_length=15, null=True, blank=True)
+    address = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
 
     def __str__(self):
