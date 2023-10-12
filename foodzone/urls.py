@@ -13,6 +13,8 @@ urlpatterns = [
     path('dishes/', views.all_dishes, name="all_dishes"),
     path('register/', views.register, name="register"),
     path('check_user_exists/', views.check_user_exists, name="check_user_exist"),
-    path('login/', views.login, name="login"),
+    path('login/', views.signin, name="login"),
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path('logout/', views.user_logout, name='logout'),
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
