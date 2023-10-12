@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from myapp.models import Contact, Dish, Team, Category, Profile
+from myapp.models import Contact, Dish, Team, Category, Profile, Order
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
+from django.shortcuts import get_object_or_404
 
 
 def index(request):
