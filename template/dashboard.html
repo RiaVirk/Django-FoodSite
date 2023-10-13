@@ -76,7 +76,7 @@
                                         {% if profile.profile_pic %}
                                         <a href="/media/{{profile.profile_pic}}"><img src="/media/{{profile.profile_pic}}" alt="" class="pic"></a>
                                         {% else %}
-                                        <span class='pic'>{{profile.user.first_name.0}}</span>
+                                        <span class='pic text-danger font-weight-bolder'>{{profile.user.first_name.0}}</span>
                                         {% endif %}
                    
                                         <p>{{user.first_name}}</p>

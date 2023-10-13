@@ -96,8 +96,8 @@ def signin(request):
         if check_user:
             login(request, check_user)
             if check_user.is_superuser or check_user.is_staff:
-                return HttpResponseRedirect('/admin')
-            return HttpResponseRedirect('/dashboard')
+                return HttpResponseRedirect('/admin/')
+            return HttpResponseRedirect('/dashboard/')
         else:
             context.update(
                 {'message': 'Invalid Login Details!', 'class': 'alert-danger'})
@@ -148,16 +148,7 @@ def dashboard(request):
     orders = Order.objects.filter(
         customer__user__id=request.user.id).order_by('-id')
     context['orders'] = orders
-    return render(request, 'dashboard.html', context)
-
-
-def user_logout(request):
-    logout(request)
-    return HttpResponseRedirect('/')
-
-
-def logout(request):
-    return render(request, 'logout.html')
+    return render(request, 'dashboard.html/', context)
 
 
 def user_logout(request):
