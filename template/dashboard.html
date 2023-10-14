@@ -12,7 +12,7 @@
         border:1px solid lightgray;
         margin:40px 0px;
     }
-    .dash-content .pic{
+    .dash-content {
         background-color: gray;
         color: white;
         display: inline-block;
@@ -74,9 +74,9 @@
                                 <div class="row">
                                     <div class="col-md-12 text-center dash-content">
                                         {% if profile.profile_pic %}
-                                        <a href="/{{profile.profile_pic}}"><img src="/{{profile.profile_pic}}" alt="" class="pic w-25 rounded-circle mt-3"></a>
+                                        <a href="/{{profile.profile_pic}}"><img src="/{{profile.profile_pic}}" alt="" class=" w-25 rounded-circle mt-3 shadow"></a>
                                         {% else %}
-                                        <span class='pic'>{{profile.user.first_name.0}}</span>
+                                        <span class=' w-25 rounded-circle mt-3 shadow'>{{profile.user.first_name.0}}</span>
                                         {% endif %}
                    
                                         <p class="text-capitalize font-weight-bolder text-info display-3">{{user.first_name}}</p>
