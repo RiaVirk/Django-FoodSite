@@ -22,7 +22,7 @@
             <div class="col-md-6 mx-auto">
                 <div class="food-item">
                    
-                    <a href="/media/{{dish.image}}" target="_blank"><img src="/media/{{dish.image}}" style="height: 300px;width: 100%;"></a>
+                    <a href="/{{dish.image}}" target="_blank"><img src="/{{dish.image}}" style="height: 300px;width: 100%;"></a>
                     <h2 class="my-3">{{dish.name}}</h2>
                     <p>
                         {{dish.details}}
@@ -47,7 +47,7 @@
                     {% elif user.is_active%}
                         {{form.render}}
                     {% else %}
-                        <p><a href="{% url 'login' %}">Login to Buy</a> </p>
+                        <p><a href="{% url 'login' %}">Login to Order</a> </p>
                     {% endif %}
                     {% else %}
                         <p class="text-danger">Not Available for delivery!</p>
