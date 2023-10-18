@@ -105,8 +105,8 @@ def signin(request):
         if check_user:
             login(request, check_user)
             if check_user.is_superuser or check_user.is_staff:
-                return HttpResponseRedirect('/admin')
-            return HttpResponseRedirect('/dashboard')
+                return HttpResponseRedirect('/admin/')
+            return HttpResponseRedirect('/dashboard/')
         else:
             context.update(
                 {'message': 'Invalid Login Details!', 'class': 'alert-danger'})
@@ -175,23 +175,23 @@ def single_dish(request, id):
         order.save()
         inv = f'INV0000-{order.id}'
 
-        # paypal_dict = {
-        #     'business': settings.PAYPAL_RECEIVER_EMAIL,
-        #     'amount': dish.discounted_price,
-        #     'item_name': dish.name,
-        #     'user_id': request.user.id,
-        #     'invoice': inv,
-        #     'notify_url': 'http://{}{}'.format(settings.HOST, reverse('paypal-ipn')),
-        #     'return_url': 'http://{}{}'.format(settings.HOST, reverse('payment_done')),
-        #     'cancel_url': 'http://{}{}'.format(settings.HOST, reverse('payment_cancel')),
-        # }
+        paypal_dict = {
+            'business': settings.PAYPAL_RECEIVER_EMAIL,
+            'amount': dish.discounted_price,
+            'item_name': dish.name,
+            'user_id': request.user.id,
+            'invoice': inv,
+            'notify_url': 'http://{}{}'.format(settings.HOST, reverse('paypal-ipn')),
+            'return_url': 'http://{}{}'.format(settings.HOST, reverse('payment_done')),
+            'cancel_url': 'http://{}{}'.format(settings.HOST, reverse('payment_cancel')),
+        }
 
         order.invoice_id = inv
         order.save()
         request.session['order_id'] = order.id
 
-        # form = PayPalPaymentsForm(initial=paypal_dict)
-        # context.update({'dish': dish, 'form': form})
+        form = PayPalPaymentsForm(initial=paypal_dict)
+        context.update({'dish': dish, 'form': form})
 
     return render(request, 'dish.html', context)
 

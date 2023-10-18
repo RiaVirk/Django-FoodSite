@@ -47,7 +47,7 @@
                     {% elif user.is_active%}
                         {{form.render}}
                     {% else %}
-                        <p><a href="{% url 'login' %}">Login to Order</a> </p>
+                        <p><a href="{% url 'login' %}">Login to Buy</a> </p>
                     {% endif %}
                     {% else %}
                         <p class="text-danger">Not Available for delivery!</p>
