@@ -17,8 +17,4 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('logout/', views.user_logout, name='logout'),
     path('dish/<int:id>/', views.single_dish, name='dish'),
-
-    path('paypal/', include('paypal.standard.ipn.urls')),
-    path('payment_done/', views.payment_done, name='payment_done'),
-    path('payment_cancel/', views.payment_cancel, name='payment_cancel'),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
