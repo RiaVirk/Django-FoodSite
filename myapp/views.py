@@ -42,10 +42,17 @@ def about(request):
 
 
 def team_members(request):
-    context = {}
-    members = Team.objects.all().order_by('name')
-    context['team_members'] = members
-    return render(request, 'team.html', context)
+    teams = Team.objects.all()
+    return render(request, 'team.html', {
+        "teams": teams,
+    })
+
+
+def message(request):
+    messages = Contact.objects.all()
+    return render(request, 'message.html', {
+        "messages": messages,
+    })
 
 
 def all_dishes(request):
