@@ -29,7 +29,7 @@
                 {% else %}
                 <div class="food-item" style="background-color: lightgray;">
                 {% endif %}
-                    <a href="/{{i.image}}" target="_blank"><img src="/{{i.image}}" style="height: 200px;width: 100%;"></a>
+                    <a href="" target=""><img src="/{{i.image}}" style="height: 200px;width: 100%;"></a>
                     <h2 class="my-3">{{i.name}}</h2>
                     <p>
                         {{i.details}}
@@ -48,7 +48,10 @@
                             }
                         </script>
                     </p>
-                    {% if i.is_available %}
+
+                    {% if user.is_superuser or user.is_staff %}
+                    <p class="text-danger">Staff can't order !!</p>
+                    {% elif i.is_available %}      
                     <a href="{% url 'dish' id=i.id %}">Order Now</a>
                     {% else %}
                         <p class="text-danger">Not Available for delivery!</p>
